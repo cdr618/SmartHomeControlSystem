@@ -1,5 +1,8 @@
 package com.smart.home.appliance.ac;
 
+/**
+ * Possible modes for the air conditioner.
+ */
 public enum ACMode {
 	COOLER(true), 
 	COOL(true), 
@@ -14,7 +17,5 @@ public enum ACMode {
 	public boolean isAcOn() {
 		return isAcOn;
 	}
-
-	
 	
 }

@@ -2,6 +2,9 @@ package com.smart.home.appliance.ac;
 
 import com.smart.home.appliance.Controller;
 
+/**
+ * Controls air conditioner.
+ */
 public class Thermostat extends Controller {
 	
 	private int currentTemp;
@@ -29,6 +32,11 @@ public class Thermostat extends Controller {
 		return desiredTemp;
 	}
 
+	/**
+	 * Sets the AC mode based on the difference between the current and desired temperature.
+	 * 
+	 * @param desiredTemp temperature the thermostat is set to
+	 */
 	public void setDesiredTemp(int desiredTemp) {
 		this.desiredTemp = desiredTemp;
 		double tempDiff = currentTemp - desiredTemp;

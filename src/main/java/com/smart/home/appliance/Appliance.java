@@ -1,5 +1,8 @@
 package com.smart.home.appliance;
 
+/**
+ * Appliances superclass. 
+ */
 public abstract class Appliance {
 
 	private String name;

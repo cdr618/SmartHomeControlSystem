@@ -1,8 +1,11 @@
 package com.smart.home.appliance;
 
+/**
+ * Appliance Controller superclass.
+ */
 public abstract class Controller {
+	
 	protected Appliance appliance;
-	protected boolean isOn;
 
 	public Controller(Appliance appliance) {
 		this.appliance = appliance;
@@ -16,14 +19,8 @@ public abstract class Controller {
 		this.appliance = appliance;
 	}
 
-	public boolean isOn() {
-		return isOn;
-	}
-
-	public void setOn(boolean isOn) {
-		this.isOn = isOn;
+	public void toggleAppliance(boolean isOn) {
 		appliance.setOn(isOn);
 	}
-	
 	
 }

@@ -1,7 +1,6 @@
 package com.smart.home;
 
 import java.util.HashSet;
-import java.util.Scanner;
 import java.util.Set;
 
 import com.smart.home.appliance.Controller;
@@ -14,6 +13,9 @@ import com.smart.home.appliance.light.Switch;
 
 import it.sauronsoftware.cron4j.Scheduler;
 
+/**
+ * Main class which initializes appliances and starts shut down scheduler.
+ */
 public class ControlSystem {
 
 	private static Set<Controller> controllers = new HashSet<>();
@@ -21,7 +23,7 @@ public class ControlSystem {
 	public static void main(String[] args) {
 		try {
 			Switch lightSwitch = new Switch(new Light("Light"));
-			lightSwitch.setOn(true);
+			lightSwitch.toggleAppliance(true);
 			
 			FanCord fanCord = new FanCord(new Fan("Fan"));
 			fanCord.pullCord();
@@ -43,13 +45,13 @@ public class ControlSystem {
 			
 			Scheduler s = new Scheduler();
 			s.schedule("0 1 1 1 *", new Runnable() {
-			
+
 				@Override
 				public void run() {
 					for (Controller c : controllers) {
 						if (c != null && c.getAppliance() != null) {
 							try {
-								c.setOn(false);
+								c.toggleAppliance(false);
 								System.out.println("Turned off " + c.getAppliance().getName());
 							} catch (Exception e) {
 								System.err.println("Failed to turn off " + c.getAppliance().getName());

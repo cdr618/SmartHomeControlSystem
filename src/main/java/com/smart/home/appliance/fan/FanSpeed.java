@@ -1,5 +1,8 @@
 package com.smart.home.appliance.fan;
 
+/**
+ * Speeds the fan can go. nextSpeed is the new speed of the fan after the cord is pulled.
+ */
 public enum FanSpeed {
 	
 	ZERO("TWO", false),
